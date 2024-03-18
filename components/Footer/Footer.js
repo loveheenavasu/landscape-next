@@ -2,15 +2,12 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import dynamic from "next/dynamic";
-import { FaPhone, FaRegClock } from "react-icons/fa";
-import { MdLocationOn, MdOutlineEmail } from "react-icons/md";
-import FormFooter from "../Forms/FormFooter";
-// import Map from "../map";
-const Map = dynamic(()=> import("../map"));
-
-import InstagramFeed from "../instagramFeed";
+const FormFooter = dynamic(() => import("../Forms/FormFooter"));
+const Map = dynamic(() => import("../map"));
+const InstagramFeed = dynamic(() => import("../instagramFeed"));
 import { ButtonInline } from "../buttons";
 import styles from "./Footer.module.scss";
+import { RegClock, Phone, Location, Mail } from "../../public/svg/Svg";
 
 const IconStyle = {
   color: "var(--clr-accent)",
@@ -29,7 +26,7 @@ export default function Footer() {
               <div className="spacing">
                 <Image
                   width={200}
-                  height={70}
+                  height={100}
                   src="/project-landscape-logo-light.svg"
                   alt="project landscape logo - calgary landscape company"
                 />
@@ -48,7 +45,7 @@ export default function Footer() {
                         href="tel: 403-257-4059"
                       >
                         <div>
-                          <FaPhone style={IconStyle} />
+                          <Phone style={IconStyle} />
                         </div>
                         403-257-4059
                       </Link>
@@ -59,7 +56,7 @@ export default function Footer() {
                         href="mailto: office@projectlandscape.ca"
                       >
                         <div>
-                          <MdOutlineEmail style={IconStyle} />
+                          <Mail style={IconStyle} />
                         </div>
                         office@projectlandscape.ca
                       </Link>
@@ -71,7 +68,7 @@ export default function Footer() {
                         target="_blank"
                       >
                         <div>
-                          <MdLocationOn style={IconStyle} />
+                          <Location style={IconStyle} />
                         </div>
                         3511 64 Ave Calgary, AB
                       </Link>
@@ -79,7 +76,7 @@ export default function Footer() {
                     <li>
                       <Link className={styles.contactLink} href="#">
                         <div>
-                          <FaRegClock style={IconStyle} />
+                          <RegClock />
                         </div>
                         9 AM - 5 PM Mon - Fri <br /> 9 AM - 3 PM Sat
                       </Link>
@@ -104,7 +101,7 @@ export default function Footer() {
                         target="_blank"
                       >
                         <div>
-                          <MdLocationOn style={IconStyle} />
+                          <Location style={IconStyle} />
                         </div>
                         BACKYARD CANADA - 711 48 AVE SE UNIT 1
                       </Link>
@@ -116,7 +113,7 @@ export default function Footer() {
                         target="_blank"
                       >
                         <div>
-                          <MdLocationOn style={IconStyle} />
+                          <Location style={IconStyle} />
                         </div>
                         PATIO STORE - 533 58 AVE SE
                       </Link>
@@ -128,7 +125,7 @@ export default function Footer() {
                         target="_blank"
                       >
                         <div>
-                          <MdLocationOn style={IconStyle} />
+                          <Location style={IconStyle} />
                         </div>
                         WORLD OF SPAS - 6201 CENTRE S
                       </Link>
@@ -236,14 +233,34 @@ export default function Footer() {
                     community. We are landscaping experts in Calgary.
                   </p>
                 </div>
+                
+                
               </div>
+
               <div className={styles.divider} />
             </div>
             <div>
               <h4 className="subheader">email us</h4>
               <FormFooter />
+              <div style={{marginTop:'30px'}}>
+                <ul className={styles.cities}>
+                <h4 className="subheader">Cities</h4>
+                  <li>Calgary landscaping</li>
+                  <li>Okotoks Landscaping </li>
+                  <li>Airdrie Landscaping </li>
+                  <li>Chestermere Landscaping </li>
+                  <li>Langdon Landscaping</li>
+                  <li>Boulder Creek Landscaping</li>
+                  <li>Heritage Pointe Landscaping</li>
+                  <li>Priddis Landscaping</li>
+                  <li>Bearspaw Landscaping</li>
+                  <li>Springbank Landscaping</li>
+                </ul>
+              </div>
             </div>
+            
           </div>
+
           <hr />
         </div>
       </div>
@@ -626,7 +643,6 @@ export default function Footer() {
                     alt="aaron tonner web solutions logo"
                     width={100}
                     height={100}
-                    priority={true}
                   />
                 </Link>
               </div>

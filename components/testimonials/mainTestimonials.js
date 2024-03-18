@@ -1,15 +1,8 @@
 import React from "react";
-import dynamic from "next/dynamic";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
 import styled from "styled-components";
-const Slider = dynamic(() => import("react-slick"), { ssr: false });
-const FaStar = dynamic(() =>
-  import("react-icons/fa").then((module) => module.FaStar)
-);
-const ButtonPrimary = dynamic(() =>
-  import("../buttons").then((module) => module.ButtonPrimary)
-);
+import { ButtonPrimary } from "../buttons";
+import Image from "next/image";
 
 const ReviewWrapper = styled.div`
   border: 1px solid var(--clr-accent);
@@ -29,12 +22,15 @@ const ReviewWrapper = styled.div`
 `;
 
 const Wrapper = styled.div`
-  background: url("http://21-pl.purpleparrotwebsites.com/wp-content/uploads/2023/05/calgary-landscaping-testimonials-banner.jpg");
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  max-height: 1000px;
-  padding: 10px 5px;
+  position: relative;
+  z-index: 1;
+  .testimonial_banner {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
 `;
 
 const SliderWrapper = styled.div`
@@ -57,6 +53,28 @@ const FlexStars = styled.div`
     color: var(--clr-tan);
   }
 `;
+const StarIcon = React.memo(() => {
+  return (
+    <Image
+      src='/Reviewstar.png'
+      alt="Star"
+      width={20}
+      height={20}
+      loading="lazy"
+    />
+  );
+});
+
+const StarRating = React.memo(() => {
+  return (
+    <FlexStars>
+      {[...Array(5)].map((_, index) => (
+        <StarIcon key={index} />
+      ))}
+    </FlexStars>
+  );
+});
+
 
 const ReviewBox = (props) => {
   return (
@@ -64,11 +82,7 @@ const ReviewBox = (props) => {
       <h3 className="subheader">{props.title}</h3>
       <p className="italics">"{props.review}"</p>
       <p className="bold caps">{props.name}</p>
-      <FlexStars>
-        {[...Array(5)].map((_, index) => (
-          <FaStar key={index} />
-        ))}
-      </FlexStars>
+      <StarRating />
     </ReviewWrapper>
   );
 };
@@ -80,19 +94,28 @@ export default function MainTestimonials() {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
+    lazyLoad: true,
   };
   return (
-    <div style={{ padding: "30px 0px" }}>
+    <div>
       <center>
         <h2 className="title" style={{ padding: "20px 0px" }}>
           What Clients Say About Us
         </h2>
       </center>
       <Wrapper>
+      <Image
+          className="testimonial_banner"
+          src="https://21-pl.purpleparrotwebsites.com/wp-content/uploads/2023/05/calgary-landscaping-testimonials-banner.jpg"
+          alt="hardscaping-slider_1_mj4mkv"
+          width={500}
+          height={500}
+          sizes="(max-width:768px) , 33vw, 50vw"
+        />
         <section>
           <div className="container">
             <SliderWrapper>
-              <Slider {...settings}>
+              <Slider {...settings} >
                 <ReviewBox
                   title="I am certainly happy I made the choice to go with them"
                   review="After attending the Calgary Home and Garden show with my neighbor and seeing their excellent display we decided to use them for our backyard projects. I am certainly happy I made the choice to go with them. The workers  attention to detail and excellent preparation greatly contributed the success of the project."

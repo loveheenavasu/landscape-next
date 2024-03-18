@@ -4,7 +4,7 @@ import Link from "next/link";
 export const ButtonPrimary = styled(props => <Link {...props} />)`
   cursor: pointer;
   display: inline-block;
-  font-family: var(--ff-alfa);
+  font-family: var(--font-alfa-slab-one);
   font-size: var(--fs-sm);
   font-weight: var(--fw-button);
   letter-spacing: 0.1em;
@@ -46,7 +46,7 @@ export const ButtonPrimary = styled(props => <Link {...props} />)`
 export const ButtonPrimaryDark = styled(props => <Link {...props} />)`
   cursor: pointer;
   display: inline-block;
-  font-family: var(--ff-alfa);
+  font-family: var(--font-alfa-slab-one);
   font-size: var(--fs-sm);
   font-weight: var(--fw-button);
   letter-spacing: 0.1em;
@@ -68,7 +68,7 @@ export const ButtonPrimaryDark = styled(props => <Link {...props} />)`
 export const ButtonSecondary = styled(props => <Link {...props} />)`
   cursor: pointer;
   display: inline-block;
-  font-family: var(--ff-alfa);
+  font-family: var(--font-alfa-slab-one);
   font-size: var(--fs-sm);
   font-weight: var(--fw-button);
   letter-spacing: 0.1em;
@@ -89,7 +89,7 @@ export const ButtonSecondary = styled(props => <Link {...props} />)`
 export const ButtonSecondaryLight = styled(props => <Link {...props} />)`
   cursor: pointer;
   display: inline-block;
-  font-family: var(--ff-alfa);
+  font-family: var(--font-alfa-slab-one);
   font-size: var(--fs-sm);
   font-weight: var(--fw-button);
   letter-spacing: 0.1em;
@@ -100,6 +100,14 @@ export const ButtonSecondaryLight = styled(props => <Link {...props} />)`
   background: var(--clr-tan);
   color: var(--txt-dark);
   border: 1px solid var(--clr-tan);
+  min-width: 120px;
+  width: fit-content;
+
+  @media (max-width: 768px) {
+    font-size: var(--fs-xs);
+    padding: 0.2em 0.2em;
+    min-width: auto;
+  }
 
   &:hover {
     color: var(--txt-dark);
@@ -108,7 +116,7 @@ export const ButtonSecondaryLight = styled(props => <Link {...props} />)`
 export const ButtonSecondaryDark = styled(props => <Link {...props} />)`
   cursor: pointer;
   display: inline-block;
-  font-family: var(--ff-alfa);
+  font-family: var(--font-alfa-slab-one);
   font-size: var(--fs-sm);
   font-weight: var(--fw-button);
   letter-spacing: 0.1em;
@@ -130,14 +138,14 @@ export const ButtonSecondaryDark = styled(props => <Link {...props} />)`
 export const ButtonUnderline = styled(props => <Link {...props} />)`
   cursor: pointer;
   display: inline-block;
-  font-family: var(--ff-alfa);
+  font-family: var(--font-alfa-slab-one);
   font-size: var(--fs-sm);
   font-weight: var(--fw-button);
   font-style: italic;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--clr-accent);
-
+  transition: color 0.3s ease;
   // this is for when an icon is used inside too
   div {
     display: flex;
@@ -149,7 +157,7 @@ export const ButtonUnderline = styled(props => <Link {...props} />)`
     }
   }
   &:hover {
-    color: var(--clr-accent);
+    color: var(--clr-hover);
   }
 `
 export const ButtonInline = styled(props => <Link {...props} />)`
@@ -163,10 +171,10 @@ export const ButtonInline = styled(props => <Link {...props} />)`
 `
 
 // Anchors
-export const AnchorPrimary = styled.a`
+export const AnchorPrimary = styled(Link)`
   cursor: pointer;
   display: inline-block;
-  font-family: var(--ff-alfa);
+  font-family: var(--font-alfa-slab-one);
   font-size: var(--fs-sm);
   font-weight: var(--fw-button);
   letter-spacing: 0.1em;
@@ -196,7 +204,7 @@ export const AnchorPrimary = styled.a`
   }
 `
 
-export const AnchorSecondary = styled.a`
+export const AnchorSecondary = styled(Link)`
   cursor: pointer;
   display: inline-block;
   font-size: var(--fs-sm);
@@ -215,7 +223,7 @@ export const AnchorSecondary = styled.a`
     opacity: 0.8;
   }
 `
-export const AnchorSecondaryDark = styled.a`
+export const AnchorSecondaryDark = styled(Link)`
   cursor: pointer;
   display: inline-block;
   font-size: var(--fs-sm);
@@ -235,7 +243,7 @@ export const AnchorSecondaryDark = styled.a`
   }
 `
 
-export const AnchorUnderline = styled.a`
+export const AnchorUnderline = styled(Link)`
   cursor: pointer;
   display: inline-block;
   font-size: var(--fs-sm);
@@ -260,7 +268,7 @@ export const AnchorUnderline = styled.a`
   }
 `
 
-export const AnchorInline = styled.a`
+export const AnchorInline = styled(Link)`
   cursor: pointer;
   display: inline;
   color: var(--clr-accent);

@@ -47,6 +47,8 @@ const VideoIframe = ({ videoId, thumbnailUrl }) => (
     `}
     style={{ aspectRatio: "16/9" }}
     frameBorder={0}
+    loading="lazy"
+    title="you tube video player"
   />
 );
 
@@ -63,7 +65,7 @@ export default function Videos() {
           <Items>
             <div className="flex">
               {videos.map((video) => (
-                <VideoIframe key={video.id} videoId={video.id} thumbnailUrl={video.thumbnail} />
+                <VideoIframe key={video.id} videoId={video.id} thumbnailUrl={video.thumbnail}  />
               ))}
             </div>
           </Items>

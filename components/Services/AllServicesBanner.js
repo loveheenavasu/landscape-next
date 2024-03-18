@@ -43,7 +43,7 @@ const Item = styled.div`
     z-index: 1;
   }
   h3 {
-    font-family: var(--ff-alfa);
+    font-family: var(--font-alfa-slab-one);
     font-size: var(--fs-2);
     color: var(--txt-light);
     position: absolute;
@@ -80,7 +80,7 @@ const Item = styled.div`
 const StyledLink = styled((props) => <Link {...props} />)`
     text-transform: uppercase
     text-decoration: none;
-    font-family: var(--ff-alfa);
+    font-family: var(--font-alfa-slab-one);
     font-size: var(--fs-2);
     color: var(--txt-light);
     position: absolute;
@@ -105,7 +105,6 @@ const ServiceBox = (props) => {
         height={100}
         src={props.src}
         alt={props.alt}
-        priority={true}
       />
       <StyledLink className="upper" href={props.href}>
         {props.text}

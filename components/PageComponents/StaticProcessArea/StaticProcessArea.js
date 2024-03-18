@@ -1,6 +1,7 @@
 import React from "react";
 import dynamic from "next/dynamic";
 import Styles from "./StaticProcess.module.scss";
+import Image from "next/image";
 const Section = dynamic(() =>
   import("components/layoutComponents").then((module) => module.Section)
 );
@@ -8,6 +9,15 @@ const Section = dynamic(() =>
 export default function StaticProcessArea() {
   return (
     <div className={Styles.wrapper}>
+      <Image
+        className={Styles.image_3}
+        src="https://21-pl.purpleparrotwebsites.com/wp-content/uploads/2024/02/outdoor-kitchen.webp"
+        alt="static process Image"
+        width={500}
+        height={500}
+        quality={50}
+      />
+      <div className={Styles.bgoverlay}></div>
       <Section>
         <div className={Styles.boxStyle}>
           <h2 className="title">
@@ -18,7 +28,6 @@ export default function StaticProcessArea() {
               <h2 className={Styles.pointStyle}>1</h2>
               <div className={Styles.desStyle}>
                 <h3>Initiating Customer Engagement</h3>
-
                 <p>
                   This initial step invites customers to connect with us.
                   Whether through a contact form, phone call, or email, we

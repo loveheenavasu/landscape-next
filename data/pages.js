@@ -712,6 +712,62 @@ export const PAGE_COMPONENTS_ACF_FIELDS = gql`
             }
           }
         }
+        ... on Page_Pagecomponents_PageComponents_FourRowImage {
+          title
+          subheader
+          imagesRow {
+            image {
+              altText
+              sourceUrl
+            }
+            title
+            link
+          }
+        }
+        ... on Page_Pagecomponents_PageComponents_TextLeftWhite {
+          body
+          title
+        }
+        ... on Page_Pagecomponents_PageComponents_ExceptTheBest1 {
+          body
+          fields {
+            title
+            image {
+              altText
+              sourceUrl
+            }
+            description
+          }
+        }
+        ... on Page_Pagecomponents_PageComponents_ImageSliderZoom {
+          title
+          imageSection {
+            image {
+              altText
+              sourceUrl
+            }
+            title
+          }
+        }
+        ... on Page_Pagecomponents_PageComponents_TwoImageWithColor {
+          title
+          bigImage {
+            image {
+              altText
+              sourceUrl
+            }
+          }
+          colorHeading
+          colorItem {
+            image {
+              altText
+              sourceUrl
+            }
+            title
+          }
+          descriptionTitle
+          description
+        }
       }
     }
   }

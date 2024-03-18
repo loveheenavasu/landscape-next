@@ -26,12 +26,9 @@
   }
 }
 
-// .serviceImg {
-//   // height: 300px;
-//   // width: 100%;
-//   object-fit: cover;
-//   z-index: 1;
-// }
+.serviceImg {
+  object-fit: cover;
+}
 
 .item {
   position: relative;
@@ -40,7 +37,7 @@
   width: 100%;
 
   h3 {
-    font-family: var(--ff-alfa);
+    font-family: var(--font-alfa-slab-one);
     font-size: var(--fs-2);
     color: var(--txt-light);
     position: absolute;
@@ -77,7 +74,7 @@
 .styledLink {
   text-transform: uppercase;
   text-decoration: none;
-  font-family: var(--ff-alfa);
+  font-family: var(--font-alfa-slab-one);
   font-size: var(--fs-2);
   color: var(--txt-light);
   position: absolute;

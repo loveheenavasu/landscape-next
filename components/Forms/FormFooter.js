@@ -1,16 +1,10 @@
 import React from "react";
-import styled from "styled-components";
 import { Input, TextArea, Submit } from "./FormItems";
 
-const FormWrapper = styled.div`
-  // background: var(--clr-dark);
-  // color: var(--txt-light);
-  // padding: 2em;
-`;
 
 export default function FormFooter(props) {
   return (
-    <FormWrapper>
+    <div>
       <form
         name="footer"
         className="spacing"
@@ -25,7 +19,6 @@ export default function FormFooter(props) {
           </label>
         </p>
         <div className="spacing-sm">
-          {/* <Label htmlFor="name">* Name:</Label> */}
           <Input
             type="name"
             name="name"
@@ -35,7 +28,6 @@ export default function FormFooter(props) {
           />
         </div>
         <div className="spacing-sm">
-          {/* <Label htmlFor="email">* Email:</Label> */}
           <Input
             type="email"
             name="email"
@@ -45,7 +37,6 @@ export default function FormFooter(props) {
           />
         </div>
         <div className="spacing-sm">
-          {/* <Label htmlFor="phone">* Phone:</Label> */}
           <Input
             type="tel"
             name="phone"
@@ -54,20 +45,7 @@ export default function FormFooter(props) {
             required
           />
         </div>
-
-        {/* <div className="spacing-sm">
-                <Label htmlFor="subject">Subject:</Label>
-                <Input
-                  type="text"
-                  name="subject"
-                  id="subject"
-                  placeholder="Subject"
-                  required
-                />
-              </div> */}
-
         <div className="spacing-sm">
-          {/* <Label htmlFor="msg">* Message:</Label> */}
           <TextArea
             name="msg"
             id="msg"
@@ -79,6 +57,6 @@ export default function FormFooter(props) {
         </div>
         <Submit type="submit" id="submit" value="submit" />
       </form>
-    </FormWrapper>
+    </div>
   );
 }

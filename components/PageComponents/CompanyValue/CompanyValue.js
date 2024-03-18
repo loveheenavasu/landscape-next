@@ -1,10 +1,9 @@
 import React from "react";
-// import { GridTwo, Section } from "";
-import { GridTwo, Section } from "components/layoutComponents";
-
-import { RxCrossCircled } from "react-icons/rx";
 import styled from "styled-components";
+import { GridTwo, Section } from "components/layoutComponents";
+import { RxCrossCircled } from "react-icons/rx";
 import { FaCheckCircle } from "react-icons/fa";
+
 const List = styled.li`
   border-bottom: 1px solid black;
   padding: 15px 0px;

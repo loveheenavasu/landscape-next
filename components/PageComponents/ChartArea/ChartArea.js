@@ -4,7 +4,6 @@ import { Section, Container } from "components/layoutComponents";
 import Image from "components/Image";
 import { IoPlayCircleOutline } from "react-icons/io5";
 import { Flex } from "../../layoutComponents";
-// import { YoutubeModal } from "./YoutubeModal";
 import { YoutubeModal } from "../../Modal/YoutubeModal";
 import { LearnMoreModal } from "../../Modal/LearnMoreModal";
 import styles from "../../../components/AllServices/AllServices.module.scss";
@@ -29,7 +28,7 @@ const HorizontalLine = styled.div`
 export const BtnPrimary = styled.button`
   cursor: pointer;
   display: inline-block;
-  font-family: var(--ff-alfa);
+  font-family: var(--font-alfa-slab-one);
   font-size: var(--fs-sm);
   font-weight: var(--fw-button);
   letter-spacing: 0.1em;
@@ -65,7 +64,7 @@ export const BtnPrimary = styled.button`
 export const BtnSecondary = styled.button`
   cursor: pointer;
   display: inline-block;
-  font-family: var(--ff-alfa);
+  font-family: var(--font-alfa-slab-one);
   font-size: var(--fs-sm);
   font-weight: var(--fw-button);
   letter-spacing: 0.1em;

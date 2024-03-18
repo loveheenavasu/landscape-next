@@ -1,49 +1,15 @@
-import styles from "./Header.module.scss";
-import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import { IoMdArrowDropdown } from "react-icons/io";
-import { FaPhone } from "react-icons/fa";
+import styles from "./Header.module.scss";
 import Link from "next/link";
 import Image from "next/image";
-import { useLockedBody } from "usehooks-ts";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import { ButtonSecondaryLight } from "../buttons";
+import {Mail, Phone, Location, DropdownArrow} from "../../public/svg/Svg";
 
 const device = {
   sm: "18em",
   md: "70em",
 };
-
-const NavList = styled.ul`
-  display: flex;
-  padding: 0;
-  margin: 0;
-  list-style-type: none;
-
-  & > * + * {
-    margin-left: 1.5em;
-  }
-
-  @media screen and (max-width: ${device.md}) {
-    display: ${({ nav }) => (nav ? "flex" : "none")};
-    align-items: center;
-    position: absolute;
-    top: 140px;
-    left: 0;
-    right: 0;
-    flex-direction: column;
-    align-items: start;
-    width: 100%;
-    background: var(--clr-light);
-    box-shadow: var(--shadow-bottom);
-    border-radius: var(--br);
-    border-top: 1px solid var(--txt-dark-secondary);
-    padding: 1em 2em 16em 2em;
-    height: 100vh;
-    overflow: auto;
-  }
-`;
-
 const Burger = styled.div`
   position: absolute;
   visibility: hidden;
@@ -80,14 +46,7 @@ const Burger = styled.div`
 
 export default function HeaderBasic() {
   const [nav, navOpen] = useState(false);
-
   const { asPath } = useRouter();
-
-  const [locked, setLocked] = useLockedBody(false, "__next");
-
-  const toggleLocked = () => {
-    setLocked(!locked);
-  };
 
   function toggleMenu() {
     navOpen(!nav);
@@ -96,65 +55,61 @@ export default function HeaderBasic() {
   useEffect(() => {
     navOpen(false);
   }, [asPath]);
-
   return (
     <div>
       <div className={styles.header}>
         <div className={styles.headertop}>
           <div className={styles.containerTop}>
-            <div className={styles.containerTopText}>
-              OutDoor Living Done Right
-            </div>
             <div className={styles.phone_container}>
               <Link className={styles.navLinkTop} href="tel: 403 257 4059">
-                <div>
-                  <FaPhone />
-                </div>
-                403 257 4059
+                <Phone />
+                <span>403 257 4059</span>
               </Link>
-              <ButtonSecondaryLight
-                style={{ fontSize: "10px", textAlign: "center" }}
-                href="/contact"
-              >
-                Start Your Project
-              </ButtonSecondaryLight>
+            </div>
+
+            <div className={styles.containerTopText}>
+              <Mail/>
+              <span>OFFICE@PROJECTLANDSCAPE.CA</span>
+            </div>
+            <div className={styles.location}>
+              <Location />
+              <span> 3511 64 AVE CALGARY</span>
             </div>
           </div>
         </div>
 
         <div className={styles.headerbottom}>
           <div className={styles.container}>
-            <div className={styles.logoContainer}>
-              <Link className={styles.styledLink} href="/">
-                <Image
-                  style={{ width: "auto", height: "60px" }}
-                  src="/project-landscape-logo-light.svg"
-                  alt="landscape company calgary logo"
-                  width={170}
-                  height={85}
-                  priority={true}
-                />
-              </Link>
-            </div>
+            <Link href="/">
+              <Image
+                className={styled.logoImg}
+                src="/project-landscape-logo-light.svg"
+                alt="landscape company calgary logo"
+                width={170}
+                height={60}
+              />
+            </Link>
             <nav className={styles.nav}>
               <Burger nav={nav} onClick={toggleMenu}>
                 <div />
                 <div />
                 <div />
               </Burger>
-              <NavList nav={nav}>
+              <div className={`${styles.NavList} ${nav ? styles.navOpen : ""}`}>
                 <div className={styles.dropdown}>
                   <p>
-                    residential services <IoMdArrowDropdown size={20} />
+                    residential services <DropdownArrow />
                   </p>
                   <div>
                     <ul>
-                      <Link
-                        className={styles.linkDark}
-                        href="/residential-services/hardscaping"
-                      >
-                        <h3 className="subheader">hardscaping</h3>
-                      </Link>
+                      <li>
+                        <Link
+                          className={styles.linkDark}
+                          href="/residential-services/hardscaping"
+                        >
+                          <h3 className="subheader">hardscaping</h3>
+                        </Link>
+                      </li>
                       <li>
                         <Link
                           className={styles.styledLink}
@@ -392,7 +347,7 @@ export default function HeaderBasic() {
                 </div>
                 <div className={styles.dropdown}>
                   <p>
-                    about <IoMdArrowDropdown size={20} />
+                    about <DropdownArrow/>
                   </p>
                   <div>
                     <ul>
@@ -504,7 +459,7 @@ export default function HeaderBasic() {
                 </div>
                 <div className={styles.dropdown}>
                   <p>
-                    resources <IoMdArrowDropdown size={20} />
+                    resources <DropdownArrow />
                   </p>
                   <div>
                     <ul>
@@ -583,7 +538,7 @@ export default function HeaderBasic() {
                     contact
                   </Link>
                 </li>
-              </NavList>
+              </div>
             </nav>
           </div>
         </div>

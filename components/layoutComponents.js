@@ -115,10 +115,18 @@ export const GridTwo = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 2em;
-
   @media screen and (max-width: ${device.md}) {
     grid-template-columns: 1fr;
   }
+`
+export const GridFour = styled.div`
+display: grid;
+grid-template-columns: repeat(4, 1fr);
+grid-gap: 3em;
+  @media screen and (max-width: ${device.md}) {
+    grid-template-columns: 1fr;
+  }
+  
 `
 
 export const GridThree = styled.div`

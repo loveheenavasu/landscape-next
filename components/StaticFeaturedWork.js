@@ -1,36 +1,39 @@
-import React from "react";
-import Link from "next/link";
-import dynamic from "next/dynamic";
-import { Carousel } from "react-bootstrap";
+import { GridTwo, Section } from "./layoutComponents";
 import styled from "styled-components";
+import { Carousel } from "react-bootstrap";
+import { ButtonPrimary } from "./buttons";
+import Link from "next/link";
 import Image from "next/image";
-const GridTwo = dynamic(() =>
-  import("./layoutComponents").then((module) => module.GridTwo)
-);
-const Section = dynamic(() =>
-  import("./layoutComponents").then((module) => module.Section)
-);
-const ButtonPrimary = dynamic(() =>
-  import("./buttons").then((module) => module.ButtonPrimary)
-);
 
 const FeaturedWrapper = styled.div`
-  background: url("https://21-pl.purpleparrotwebsites.com/wp-content/uploads/2023/07/image-3.png"),
-    rgba(0, 0, 0, 0.8);
-  background-blend-mode: overlay;
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
+  position: relative;
+  z-index: 1;
   color: var(--txt-light);
+  .faqHeroBgImg {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
   .carousel-indicators {
     display: none;
   }
 `;
+const Bgoverlay = styled.div`
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: -1;
+`;
+
 const BtnSecondary = styled.button`
   cursor: pointer;
   display: inline-block;
   width: 230px;
-  font-family: var(--ff-alfa);
+  font-family: var(--font-alfa-slab-one);
   font-size: var(--fs-sm);
   font-weight: var(--fw-button);
   letter-spacing: 0.1em;
@@ -48,18 +51,29 @@ const BtnSecondary = styled.button`
     color: var(--clr-accent);
   }
 `;
-
+const FeaturedImage = styled(Image)`
+  height: 500px;
+  width: 550px;
+  object-fit: cover;
+`;
 const FeaturedWork = () => {
   return (
     <FeaturedWrapper>
+      <Image
+        className="faqHeroBgImg"
+        src="https://21-pl.purpleparrotwebsites.com/wp-content/uploads/2024/02/outdoor-kitchen.webp"
+        alt="outdoor-kitchen"
+        width={500}
+        height={500}
+        sizes="(max-width:768px) , 33vw, 50vw"
+      />
+      <Bgoverlay />
       <Section>
         <GridTwo>
-          <div>
-            <h2 style={{ textAlign: "end", fontSize: "60px" }}>
-              PROJECT SPOTLIGHTS
-            </h2>
-          </div>
-          <div style={{ width: "80%", fontSize: "18px" }}>
+          <h2 style={{ textAlign: "center", fontSize: "60px" }}>
+            PROJECT SPOTLIGHTS
+          </h2>
+          <div style={{ textAlign: "center", fontSize: "18px" }}>
             <p>
               Check out some of our most exciting work in Landscape design and
               Outdoor living! At Project Landscape, our landscape designs and
@@ -105,16 +119,11 @@ const FeaturedWork = () => {
                 </div>
 
                 <div>
-                  <Image
-                    style={{
-                      width: "550px",
-                      height: "500px",
-                      objectFit: "cover",
-                    }}
+                  <FeaturedImage
                     src="https://21-pl.purpleparrotwebsites.com/wp-content/uploads/2023/12/21.png"
-                    width={550}
-                    height={500}
                     alt="21.png"
+                    height={500}
+                    width={550}
                   />
                 </div>
               </div>{" "}
@@ -150,18 +159,12 @@ const FeaturedWork = () => {
                   </div>
                 </div>
                 <div>
-                  <Image
-                    style={{
-                      width: "550px",
-                      height: "500px",
-                      objectFit: "cover",
-                    }}
+                  <FeaturedImage
                     src="https://21-pl.purpleparrotwebsites.com/wp-content/uploads/2023/12/22.png"
-                    width={550}
-                    height={500}
                     alt="22.png"
-                    loading="lazy"
-                  />{" "}
+                    height={500}
+                    width={550}
+                  />
                 </div>
               </div>{" "}
             </Carousel.Item>
@@ -200,16 +203,11 @@ const FeaturedWork = () => {
                 </div>
 
                 <div>
-                  <Image
-                    style={{
-                      width: "550px",
-                      height: "500px",
-                      objectFit: "cover",
-                    }}
+                  <FeaturedImage
                     src="https://21-pl.purpleparrotwebsites.com/wp-content/uploads/2023/12/24.png"
-                    width={550}
-                    height={500}
                     alt="24.png"
+                    height={500}
+                    width={550}
                   />
                 </div>
               </div>{" "}
@@ -250,16 +248,11 @@ const FeaturedWork = () => {
                 </div>
 
                 <div>
-                  <Image
-                    style={{
-                      width: "550px",
-                      height: "500px",
-                      objectFit: "cover",
-                    }}
+                  <FeaturedImage
                     src="https://21-pl.purpleparrotwebsites.com/wp-content/uploads/2023/12/25.png"
-                    width={550}
-                    height={500}
                     alt="25.png"
+                    height={500}
+                    width={550}
                   />
                 </div>
               </div>{" "}
@@ -299,16 +292,96 @@ const FeaturedWork = () => {
                 </div>
 
                 <div>
-                  <Image
-                    style={{
-                      width: "550px",
-                      height: "500px",
-                      objectFit: "cover",
-                    }}
+                  <FeaturedImage
                     src="https://21-pl.purpleparrotwebsites.com/wp-content/uploads/2024/01/image-63-1.png"
-                    width={550}
+                    alt="63.png"
                     height={500}
-                    alt="image-63-1.png"
+                    width={550}
+                  />
+                </div>
+              </div>{" "}
+            </Carousel.Item>
+            <Carousel.Item interval={5000}>
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                }}
+              >
+                <div style={{ width: "40%" }}>
+                  <div style={{ width: "60%", marginLeft: "50px" }}>
+                    <h2 style={{ fontSize: "2.4rem", marginBottom: "1.5rem" }}>
+                      Award winning Landscapes
+                    </h2>
+                    <p style={{ marginBottom: "40px" }}>
+                      Project Landscape has proudly set a new standard in
+                      Calgary, becoming the only outdoor living company to
+                      clinch the "Best Landscaping" award for three years
+                      running at the Calgary Home and Garden Show. Dive into our
+                      award-winning showcases from 2022, 2023, and 2024,
+                      brimming with inspiration for your backyard revamp. From
+                      hassle-free decking solutions and bespoke pergolas to
+                      tailor-made saunas, lush plants, tranquil water features,
+                      and paving stone options designed to complement any home
+                      exterior, we've got your outdoor makeover dreams covered.
+                    </p>
+                    <div>
+                      <ButtonPrimary href="/projects">
+                        View Case Study
+                      </ButtonPrimary>
+                    </div>
+                    <div style={{ marginTop: "20px" }}>
+                      <Link href="/portfolio">
+                        <BtnSecondary> See All Our Work</BtnSecondary>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <FeaturedImage
+                    src="https://21-pl.purpleparrotwebsites.com/wp-content/uploads/2024/03/homepage-spotlight.png"
+                    alt="63.png"
+                    height={500}
+                    width={550}
+                  />
+                </div>
+              </div>{" "}
+            </Carousel.Item>
+            <Carousel.Item interval={5000}>
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                }}
+              >
+                <div style={{ width: "40%" }}>
+                  <div style={{ width: "60%", marginLeft: "50px" }}>
+                    <h2 style={{ fontSize: "2.4rem", marginBottom: "1.5rem" }}>
+                    3 time best landscaping 
+                    </h2>
+                    <p style={{ marginBottom: "40px" }}>
+                    Project Landscape has proudly set a new standard in Calgary, becoming the only outdoor living company to clinch the "Best Landscaping" award for three years running at the Calgary Home and Garden Show. Dive into our award-winning showcases from 2022, 2023, and 2024, brimming with inspiration for your backyard revamp. From hassle-free decking solutions and bespoke pergolas to tailor-made saunas, lush plants, tranquil water features, and paving stone options designed to complement any home exterior, we've got your outdoor makeover dreams covered.
+                    </p>
+                    <div>
+                      <ButtonPrimary href="/projects">
+                        View Case Study
+                      </ButtonPrimary>
+                    </div>
+                    <div style={{ marginTop: "20px" }}>
+                      <Link href="/portfolio">
+                        <BtnSecondary> See All Our Work</BtnSecondary>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <FeaturedImage
+                    src="https://21-pl.purpleparrotwebsites.com/wp-content/uploads/2024/03/image-2.png"
+                    alt="image-2.png"
+                    height={500}
+                    width={550}
                   />
                 </div>
               </div>{" "}
